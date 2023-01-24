@@ -1,0 +1,127 @@
+[1mindexing[0m [34mdeltaVinaRF20.out_processed_score[0m [==================================] [32m708.67MB/s[0m, eta: [36m 0s[0m                                                                                                                                       [1mindexing[0m [34mdeltaVinaRF20.out_processed_score[0m [==================================] [32m478.83MB/s[0m, eta: [36m 0s[0m                                                                                                                                       # A tibble: 285 × 3
+   number_code log_ka score
+   <chr>        <dbl> <dbl>
+ 1 4llx          2.89  4.44
+ 2 5c28          5.66  5.05
+ 3 3uuo          7.96  7.38
+ 4 3ui7          9     7.84
+ 5 5c2h         11.1   7.87
+ 6 2v00          3.66  5.67
+ 7 3wz8          5.82  7.27
+ 8 3pww          7.32  8.75
+ 9 3prs          7.82  7.75
+10 3uri          9     6.66
+# … with 275 more rows
+# ℹ Use `print(n = ...)` to see more rows
+# A tibble: 285 × 3
+   number_code log_ka score
+   <chr>        <dbl> <dbl>
+ 1 4llx          2.89  4.44
+ 2 5c28          5.66  5.05
+ 3 3uuo          7.96  7.38
+ 4 3ui7          9     7.84
+ 5 5c2h         11.1   7.87
+ 6 2v00          3.66  5.67
+ 7 3wz8          5.82  7.27
+ 8 3pww          7.32  8.75
+ 9 3prs          7.82  7.75
+10 3uri          9     6.66
+# … with 275 more rows
+# ℹ Use `print(n = ...)` to see more rows
+[1mindexing[0m [34mdeltaVinaRF20.out_processed_score[0m [==================================] [32m478.83MB/s[0m, eta: [36m 0s[0m                                                                                                                                       # A tibble: 285 × 3
+   number_code log_ka score
+   <chr>        <dbl> <dbl>
+ 1 4llx          2.89  4.44
+ 2 5c28          5.66  5.05
+ 3 3uuo          7.96  7.38
+ 4 3ui7          9     7.84
+ 5 5c2h         11.1   7.87
+ 6 2v00          3.66  5.67
+ 7 3wz8          5.82  7.27
+ 8 3pww          7.32  8.75
+ 9 3prs          7.82  7.75
+10 3uri          9     6.66
+# … with 275 more rows
+# ℹ Use `print(n = ...)` to see more rows
+# A tibble: 6 × 3
+  number_code log_ka score
+  <chr>        <dbl> <dbl>
+1 4llx          2.89  4.44
+2 5c28          5.66  5.05
+3 3uuo          7.96  7.38
+4 3ui7          9     7.84
+5 5c2h         11.1   7.87
+6 2v00          3.66  5.67
+# A tibble: 6 × 3
+  number_code log_ka score
+  <chr>        <dbl> <dbl>
+1 4llx          2.89  4.44
+2 5c28          5.66  5.05
+3 3uuo          7.96  7.38
+4 3ui7          9     7.84
+5 5c2h         11.1   7.87
+6 2v00          3.66  5.67
+# A tibble: 285 × 3
+   number_code log_ka score
+   <chr>        <dbl> <dbl>
+ 1 4llx          2.89  4.44
+ 2 5c28          5.66  5.05
+ 3 3uuo          7.96  7.38
+ 4 3ui7          9     7.84
+ 5 5c2h         11.1   7.87
+ 6 2v00          3.66  5.67
+ 7 3wz8          5.82  7.27
+ 8 3pww          7.32  8.75
+ 9 3prs          7.82  7.75
+10 3uri          9     6.66
+# … with 275 more rows
+# ℹ Use `print(n = ...)` to see more rows
+[1] 1
+[1] 1
+[1] "./casf-2016-eval.Rproj"              "./data"                             
+[3] "./deltaVinaRF20.out_processed_score" "./deltaVinaRF20.out-ci.results"     
+[5] "./Dockerfile"                        "./README"                           
+[7] "./src"                              
+[1] "./casf-2016-eval.Rproj"              "./data"                             
+[3] "./deltaVinaRF20.out_processed_score" "./deltaVinaRF20.out-ci.results"     
+[5] "./Dockerfile"                        "./README"                           
+[7] "./src"                              
+[1] "./casf-2016-eval.Rproj"              "./data"                             
+[3] "./deltaVinaRF20.out_processed_score" "./deltaVinaRF20.out-ci.results"     
+[5] "./Dockerfile"                        "./notebooks"                        
+[7] "./README"                            "./src"                              
+[1] "./explore_results.nb.html" "./explore_results.Rmd"    
+function (name, pos = -1L, envir = as.environment(pos), all.names = FALSE, 
+    pattern, sorted = TRUE) 
+{
+    if (!missing(name)) {
+        pos <- tryCatch(name, error = function(e) e)
+        if (inherits(pos, "error")) {
+            name <- substitute(name)
+            if (!is.character(name)) 
+                name <- deparse(name)
+            warning(gettextf("%s converted to character string", 
+                sQuote(name)), domain = NA)
+            pos <- name
+        }
+    }
+    all.names <- .Internal(ls(envir, all.names, sorted))
+    if (!missing(pattern)) {
+        if ((ll <- length(grep("[", pattern, fixed = TRUE))) && 
+            ll != length(grep("]", pattern, fixed = TRUE))) {
+            if (pattern == "[") {
+                pattern <- "\\["
+                warning("replaced regular expression pattern '[' by  '\\\\['")
+            }
+            else if (length(grep("[^\\\\]\\[<-", pattern))) {
+                pattern <- sub("\\[<-", "\\\\\\[<-", pattern)
+                warning("replaced '[<-' by '\\\\[<-' in regular expression pattern")
+            }
+        }
+        grep(pattern, all.names, value = TRUE)
+    }
+    else all.names
+}
+<bytecode: 0x15ac82e10>
+<environment: namespace:base>
+[1] "/Users/rindtorff/github/labdao/casf-2016-eval"

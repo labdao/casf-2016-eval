@@ -1,0 +1,44 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+
+
+```
+
+```{r}
+df <- tibble(file = list.files(here::here(), full.names = TRUE, pattern = "processed_score")) %>% 
+  # process file to identify name
+  mutate(name = stringr::str_split(file, pattern = "/")[[1]][length(stringr::str_split(file, pattern = "/")[[1]])]) %>% 
+  mutate(name = stringr::str_remove(name,".out_processed_score")) %>% 
+  # load data from file 
+  
+
+```
+
+```{r}
+df <- tibble(file = list.files(here::here(), full.names = TRUE, pattern = "processed_score")) %>% 
+  # process file to identify name
+  mutate(name = stringr::str_split(file, pattern = "/")[[1]][length(stringr::str_split(file, pattern = "/")[[1]])]) %>% 
+  mutate(name = stringr::str_remove(name,".out_processed_score")) %>% 
+  # load data from file
+  mutate(score = purrr::map(file, function(score_path){
+    read_delim(score_path, 
+               delim = "\t", escape_double = FALSE, 
+               trim_ws = TRUE) %>%
+      janitor::clean_names()
+  })) %>% 
+  dplyr::select(-file) %>% 
+  unnest()
+```
+
+```{r}
+df %>% 
+  ggplot(aes(log_ka, score, color = name)) + 
+  geom_point() + 
+  theme_classic()
+```
+
