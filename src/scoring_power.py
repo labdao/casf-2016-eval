@@ -13,12 +13,12 @@ if len(sys.argv) < 2:
 	sys.exit()
 
 def usage():
-        print "-c or --coreset: specify the location of 'CoreSet.dat' (or a subset data file) in the CASF-2016 package"
-        print "-s or --score: input your scoring file name. Remember the 1st column name is #code and the 2nd column name is score. Supported file separators are comma(,), tabs(\\t) and space character( )"
-        print "-p or --prefer: input 'negative' or 'positive' string, depend on your scoring funtion preference"
-	print "-o or --output: input the prefix of the output processed scoring files. Default name is My_Scoring_Power"
-        print "-h or --help: print help message"
-	print "\nExample: python scoring_power.py -c CoreSet.dat -s ./examples/X-Score.dat -p 'positive' -o 'X-Score' > MyScoringPower.out"
+	print("-c or --coreset: specify the location of 'CoreSet.dat' (or a subset data file) in the CASF-2016 package")
+	print( "-s or --score: input your scoring file name. Remember the 1st column name is #code and the 2nd column name is score. Supported file separators are comma(,), tabs(\\t) and space character( )")
+	print( "-p or --prefer: input 'negative' or 'positive' string, depend on your scoring funtion preference")
+	print( "-o or --output: input the prefix of the output processed scoring files. Default name is My_Scoring_Power")
+	print( "-h or --help: print help message")
+	print( "\nExample: python scoring_power.py -c CoreSet.dat -s ./examples/X-Score.dat -p 'positive' -o 'X-Score' > MyScoringPower.out")
 
 
 try:
@@ -71,7 +71,7 @@ elif str(fav) == 'negative':
 	testdf2=testdf1[testdf1.score > 0]
 	testdf2.to_csv(out+'_processed_score',columns=['#code','logKa','score'],sep='\t',index=False)
 else:
-	print 'please input negative or positive'
+	print('please input negative or positive')
 	sys.exit()
 
 #Calculate the Pearson correlation coefficient
@@ -92,7 +92,7 @@ testdf1.index=testdf1.index.map(f)
 testdf1.style.set_properties(align="right")
 pd.set_option('display.max_columns',None)
 pd.set_option('display.max_rows',None)
-print testdf1[['code','logKa','score']]
+print(testdf1[['code','logKa','score']])
 print ("\nSummary of the scoring power: ===================================")
 print ("The regression equation: logKa = %.2f + %.2f * Score"%(dec(float(regr.coef_),2), dec(float(regr.intercept_),2)))
 print ("Number of favorable sample (N) = %d"%(num))
