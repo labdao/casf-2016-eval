@@ -1,1 +1,3 @@
 python src/scoring_power.py -c data/power_scoring/CoreSet.dat -s data/power_scoring/examples/deltaVinaRF20.dat -p 'positive' -o 'deltaVinaRF20.out'
+
+TODO #1
