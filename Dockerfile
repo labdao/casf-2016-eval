@@ -14,7 +14,7 @@ RUN apt-get clean
 RUN conda config --append channels conda-forge
 
 RUN conda update conda \
-	&& conda create -y --name casf numpy pandas scipy conda-forge scikit-learn
+	&& conda create -y --name casf -c conda-forge numpy pandas scipy scikit-learn
 
 RUN echo "conda activate casf" >> ~/.bashrc
 ENV PATH /usr/local/envs/casf/bin:$PATH
