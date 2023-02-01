@@ -1,0 +1,39 @@
+---
+title: "time-split PDBind Benchmark"
+author: "Niklas Rindtorff"
+date: "2023-01-31"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+setwd(here::here())
+system("ipfs daemon")
+system("ipfs get bafybeiczldvdkbz6vd7e77676su3mupu7ivlphvnnfwzhbkysgpv3dqngi -o data/external/pdbind_metadata.tsv")
+system("ipfs get bafybeibwuklb23hur3alqq2qzjfpy5mb2af4s7azjtcl2syu6ssgryotdy -o data/external/timesplit_pdbind_index.csv")
+```
+
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+generalset <- read_table(here::here("data/external/pdbind_metadata.tsv/PDBbind_v2020_plain_text_index/index/INDEX_general_PL_data.2020"),
+                                    col_names = FALSE,
+                                    skip = 6) %>% 
+  .[,-6] %>%
+  `colnames<-`(c("PDB code", "resolution", "release year", "-logKd/Ki", "Kd/Ki", "reference", "ligand name")) %>% 
+  janitor::clean_names()
+testset<- read_csv(here::here("data/external/timesplit_pdbind_index.csv/testset_csv.csv")) %>% janitor::clean_names()
+```
+
+```{r}
+testset
+```
+
